@@ -18,7 +18,7 @@ type typeOfData = {
 };
 
 export default function NewProc({ posts }: any) {
-  console.log(1)
+
 
 
   const showItem = () => {
