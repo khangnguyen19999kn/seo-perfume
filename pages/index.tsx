@@ -1,24 +1,36 @@
 import React, { useState } from "react";
-import TopHeader from "./../component/TopHeader";
-import Navbar from "./../component/Navbar";
+
 import NewProc from "./../component/NewProc";
 import AuthenBanner from "./../component/AuthenBanner";
 import ForMan from "./../component/ForMan";
 import Carousel from "./../component/Carousels";
 import ForWoman from "./../component/ForWomen";
+import TopHeader from "../component/Header/TopHeader";
+import Navbar from "../component/Header/Navbar";
+import Head from "next/head";
+
 
 export default function Home({ posts }: any) {
   return (
+    <>
+
+    <Head>
+      <title>Chuan Perfume</title>
+      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      <meta name="description" content="Chuan Perfume" />\
+    </Head>
     <div >
       <TopHeader />
       <Navbar />
       <Carousel />
       <NewProc posts={posts} />
       <AuthenBanner />
-      <ForMan />
-      <ForWoman />
+      {/* <ForMan />
+      <ForWoman /> */}
 
     </div>
+    </>
+    
   )
 }
 export async function getStaticProps() {

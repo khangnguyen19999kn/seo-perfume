@@ -1,3 +1,4 @@
+import { Image } from '@mantine/core'
 import React from 'react'
 
 export default function AuthenBanner() {
@@ -5,7 +6,7 @@ export default function AuthenBanner() {
     <div className="container mar-Baner">
         <div className="banner-item">
             <div className="bor-logo-banner"> 
-                <img src="https://chuanperfume.com/wp-content/uploads/icon-mien-phi-giao-hang.png" alt="abc" />
+                <Image width={'100%'} height={'100%'} src="https://chuanperfume.com/wp-content/uploads/icon-mien-phi-giao-hang.png" alt="abc" />
 
             </div>
             <div>
@@ -19,7 +20,7 @@ export default function AuthenBanner() {
         </div>
         <div className="banner-item">
             <div className="bor-logo-banner"> 
-                <img src="https://chuanperfume.com/wp-content/uploads/icon-original-100.png" alt="abc" />
+                <Image  width={'100%'} height={'100%'}src="https://chuanperfume.com/wp-content/uploads/icon-original-100.png" alt="abc" />
 
             </div>
             <div>
@@ -33,7 +34,7 @@ export default function AuthenBanner() {
         </div>
         <div className="banner-item">
             <div className="bor-logo-banner"> 
-                <img src="https://chuanperfume.com/wp-content/uploads/icon-hoan-tien.png" alt="abc" />
+                <Image width={'100%'} height={'100%'} src="https://chuanperfume.com/wp-content/uploads/icon-hoan-tien.png" alt="abc" />
 
             </div>
             <div>
@@ -47,7 +48,7 @@ export default function AuthenBanner() {
         </div>
         <div className="banner-item">
             <div className="bor-logo-banner"> 
-                <img src="https://chuanperfume.com/wp-content/uploads/icon-voucher.png" alt="abc" />
+                <Image width={'100%'} height={'100%'} src="https://chuanperfume.com/wp-content/uploads/icon-voucher.png" alt="abc" />
 
             </div>
             <div>

@@ -1,7 +1,7 @@
 /* eslint-disable react/display-name */
 /* eslint-disable @next/next/no-img-element */
 import React, { useState } from "react";
-
+import { Image } from "@mantine/core";
 import SwitchToggle from "./SwitchToggle";
 import SearchAuto from "./SearchAuto";
 import { IconShoppingCart } from '@tabler/icons';
@@ -14,7 +14,7 @@ export default function () {
       <div className="content-top-header">
         <div className="Logo-top-header">
           <h4>
-            <img className="img-logo" src="https://chuanperfume.com/wp-content/uploads/logo-chuan-perfume-light.png" alt="asd" />
+            <Image width={'100%'} height={'100%'} className="img-logo" src="https://chuanperfume.com/wp-content/uploads/logo-chuan-perfume-light.png" alt="asd" />
           </h4>
         </div>
         <div className="Search-Top-side">

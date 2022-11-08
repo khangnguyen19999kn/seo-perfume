@@ -31,6 +31,7 @@ const useStyles = createStyles((theme) => ({
   },
   img:{
     height:'40%',
+    width:'100%',
     '@media (min-width: 800px) and (max-width: 1220px) ': {
       backgroundColor: theme.colors.orange[6],
       height:'30%'

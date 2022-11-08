@@ -1,3 +1,4 @@
+import { Image } from "@mantine/core";
 import React, {useState} from "react";
 import SearchAuto from "./SearchAuto";
 import SwitchToggle from "./SwitchToggle";
@@ -14,11 +15,11 @@ export default function Navbar () {
   return (
     <div className="full-Nav">
         <div className={"respon-logo"+ (tog==="responsive"?" disable-item":"")}>
-        <img className="img-logo" src="https://chuanperfume.com/wp-content/uploads/logo-chuan-perfume-light.png" alt="asd" />
+        <Image width={'100%'} height={'100%'} className="img-logo" src="https://chuanperfume.com/wp-content/uploads/logo-chuan-perfume-light.png" alt="asd" />
         </div>
       <div className={`topnav ${tog}` } id="myTopnav">
-        <a className="respon-logo2">
-        <img className="img-logo" src="https://chuanperfume.com/wp-content/uploads/logo-chuan-perfume.png" alt="asd" />
+        <a className="respon-logo2" href="#">
+        <Image width={'100%'} height={'100%'} className="img-logo" src="https://chuanperfume.com/wp-content/uploads/logo-chuan-perfume.png" alt="asd" />
         </a>
         <span className="search-Side">
 
