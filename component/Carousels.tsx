@@ -103,7 +103,7 @@ export default function CardsCarousel() {
   ));
 
   return (
-    <div className="container">
+    <div className="desktop:mx-auto desktop:w-1/2">
 
     <Carousel
     

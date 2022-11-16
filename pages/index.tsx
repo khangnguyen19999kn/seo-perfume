@@ -17,7 +17,7 @@ export default function Home({ posts }: NewProcProps ) {
     </Head>
     <div >
       <Header/>
-      <div className="mt-[8rem]">
+      <div className="desktop:mt-[10rem] mobile:mt-[3rem]">
 
       <Carousel />
       <NewProc posts={posts} />

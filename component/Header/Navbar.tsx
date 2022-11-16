@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { activeResponsive } from ".";
 import SearchAuto from "./SearchAuto";
 import SwitchToggle from "./SwitchToggle";
+import Link from 'next/link'
 
 export default function Navbar({ tog, setTog }: activeResponsive) {
   const toogle = () => {
@@ -22,10 +23,14 @@ export default function Navbar({ tog, setTog }: activeResponsive) {
     window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("scroll", () => {
       if (scrollPosition < lastScroll) {
-        ref.current!.className = "hidden";
+        if (ref.current) {
+          ref.current.className = "hidden";
+        }
       }
       if (scrollPosition < 50) {
-        ref.current!.className = "full-Nav";
+        if (ref.current) {
+          ref.current.className = "full-Nav";
+        }
       }
       setLastScroll(scrollPosition);
     });
@@ -42,6 +47,8 @@ export default function Navbar({ tog, setTog }: activeResponsive) {
           "respon-logo" + (tog === "responsive" ? " disable-item" : "")
         }
       >
+        <Link href="/"> 
+        
         <Image
           width={"100%"}
           height={"100%"}
@@ -49,9 +56,10 @@ export default function Navbar({ tog, setTog }: activeResponsive) {
           src="https://chuanperfume.com/wp-content/uploads/logo-chuan-perfume-light.png"
           alt="asd"
         />
+        </Link>
       </div>
       <div className={`topnav ${tog}`} id="myTopnav">
-        <a className="respon-logo2" href="#">
+        <Link className="respon-logo2" href="/">
           <Image
             width={"100%"}
             height={"100%"}
@@ -59,7 +67,7 @@ export default function Navbar({ tog, setTog }: activeResponsive) {
             src="https://chuanperfume.com/wp-content/uploads/logo-chuan-perfume.png"
             alt="asd"
           />
-        </a>
+        </Link>
         <span className="search-Side">
           <SearchAuto />
         </span>

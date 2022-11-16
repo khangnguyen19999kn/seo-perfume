@@ -5,6 +5,7 @@ import { Image } from "@mantine/core";
 import SwitchToggle from "./SwitchToggle";
 import SearchAuto from "./SearchAuto";
 import { IconShoppingCart } from '@tabler/icons';
+import Link from "next/link";
 
 
 export default function () {
@@ -14,7 +15,9 @@ export default function () {
       <div className="content-top-header">
         <div className="Logo-top-header">
           <h4>
+            <Link href="/">
             <Image width={'100%'} height={'100%'} className="img-logo" src="https://chuanperfume.com/wp-content/uploads/logo-chuan-perfume-light.png" alt="asd" />
+            </Link>
           </h4>
         </div>
         <div className="Search-Top-side">
