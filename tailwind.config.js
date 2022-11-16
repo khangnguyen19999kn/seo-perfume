@@ -5,6 +5,7 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./component/**/*.{js,ts,jsx,tsx}",
   ],
+  corePlugins: {     preflight: false,   },
   theme: {
     extend: {
       screens: {
@@ -22,5 +23,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  
 }
