@@ -1,6 +1,6 @@
 import React from "react";
 
-import { createStyles, Loader,Image } from "@mantine/core";
+import { createStyles, Loader, Image } from "@mantine/core";
 
 const useStyles = createStyles((theme) => ({
   topTittle: {
@@ -11,22 +11,30 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-type typeOfData = {
-  name?: string;
-  img?: string;
-  type?: string;
-  price?: string;
+export type TypeOfData = {
+  name: string;
+  img: [string];
+  type: string;
+  price: string;
 };
 
-export default function NewProc({ posts }: any) {
+export type NewProcProps = {
+  posts: TypeOfData[] ;
+
+}
+
+export default function NewProc({ posts }: NewProcProps) {
+
+  
   const showItem = () => {
     if (posts) {
-      const grpIteem = posts.map((element: any, index: number) => (
+      const grpIteem = posts.map((element: TypeOfData, index: number) => (
         <li key={index} className="List-item">
           <div className="card-item-list-new">
             <Image
-              width={'100%'} height={'100%'}
-              src={element.img}
+              width={"100%"}
+              height={"100%"}
+              src={element.img[0]}
               alt={`${index}`}
             />
 

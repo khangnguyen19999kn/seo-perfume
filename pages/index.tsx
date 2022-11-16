@@ -1,16 +1,12 @@
 import React, { useState } from "react";
-
 import NewProc from "./../component/NewProc";
 import AuthenBanner from "./../component/AuthenBanner";
-import ForMan from "./../component/ForMan";
 import Carousel from "./../component/Carousels";
-import ForWoman from "./../component/ForWomen";
-import TopHeader from "../component/Header/TopHeader";
-import Navbar from "../component/Header/Navbar";
 import Head from "next/head";
+import type {NewProcProps} from "./../component/NewProc";
+import Header from "../component/Header";
 
-
-export default function Home({ posts }: any) {
+export default function Home({ posts }: NewProcProps ) {
   return (
     <>
 
@@ -20,11 +16,13 @@ export default function Home({ posts }: any) {
       <meta name="description" content="Chuan Perfume" />\
     </Head>
     <div >
-      <TopHeader />
-      <Navbar />
+      <Header/>
+      <div className="mt-[8rem]">
+
       <Carousel />
       <NewProc posts={posts} />
       <AuthenBanner />
+      </div>
       {/* <ForMan />
       <ForWoman /> */}
 

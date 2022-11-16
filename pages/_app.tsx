@@ -1,4 +1,6 @@
 import '../styles/globals.css'
+import '../styles/styles.css'
+
 import type { AppProps } from 'next/app'
 import { ColorScheme, ColorSchemeProvider, MantineProvider } from '@mantine/core';
 import { useHotkeys, useLocalStorage } from '@mantine/hooks';
