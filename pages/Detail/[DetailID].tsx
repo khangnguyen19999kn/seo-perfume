@@ -31,7 +31,7 @@ export async function getStaticPaths() {
     params: { DetailID: post.id.toString() },
   }));
   // console.log(paths)
-  return { paths, fallback: "blocking" };
+  return { paths, fallback: false };
 }
 
 export async function getStaticProps(context: any) {
