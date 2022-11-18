@@ -3,42 +3,41 @@ import React, { useEffect, useRef, useState } from "react";
 import { activeResponsive } from ".";
 import SearchAuto from "./SearchAuto";
 import SwitchToggle from "./SwitchToggle";
-import Link from 'next/link'
+import Link from "next/link";
+import { useWindowScroll } from "@mantine/hooks";
 
 export default function Navbar({ tog, setTog }: activeResponsive) {
+  const [scroll] = useWindowScroll();
   const toogle = () => {
     if (tog === "disable") {
       setTog("responsive");
     } else setTog("disable");
   };
-  const [scrollPosition, setScrollPosition] = useState(0);
   const [lastScroll, setLastScroll] = useState(0);
-  const handleScroll = () => {
-    const position = window.pageYOffset;
-    setScrollPosition(position);
-  };
-
   const ref = useRef<HTMLHeadingElement>(null);
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("scroll", () => {
-      if (scrollPosition < lastScroll) {
+      if (scroll.y > lastScroll) {
         if (ref.current) {
           ref.current.className = "hidden";
         }
-      }
-      if (scrollPosition < 50) {
+      } else {
         if (ref.current) {
           ref.current.className = "full-Nav";
         }
       }
-      setLastScroll(scrollPosition);
-    });
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [scrollPosition]);
+      setLastScroll(scroll.y);
+    });
+    setTimeout(() => {
+      if (ref.current) {
+        if (scroll.y > 100) {
+          ref.current.className = "hidden";
+        }
+      }
+    }, 3000);
+    console.log(scroll.y);
+  }, [scroll.y]);
 
   return (
     <div className="full-Nav" ref={ref}>
@@ -47,15 +46,14 @@ export default function Navbar({ tog, setTog }: activeResponsive) {
           "respon-logo" + (tog === "responsive" ? " disable-item" : "")
         }
       >
-        <Link href="/"> 
-        
-        <Image
-          width={"100%"}
-          height={"100%"}
-          className="img-logo"
-          src="https://chuanperfume.com/wp-content/uploads/logo-chuan-perfume-light.png"
-          alt="asd"
-        />
+        <Link href="/">
+          <Image
+            width={"100%"}
+            height={"100%"}
+            className="img-logo"
+            src="https://chuanperfume.com/wp-content/uploads/logo-chuan-perfume-light.png"
+            alt="asd"
+          />
         </Link>
       </div>
       <div className={`topnav ${tog}`} id="myTopnav">

@@ -95,6 +95,8 @@ export default function CardsCarousel() {
   const slides = data.map((item) => (
     <Carousel.Slide key={item.title} >
           <Image
+          width={'100%'}
+          height={'100%'}
           src={item.image}
           className={classes.img}
           alt="Norway"

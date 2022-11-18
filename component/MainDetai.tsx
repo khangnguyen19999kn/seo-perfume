@@ -73,12 +73,12 @@ export default function MainDetai({ posts }: DetailPro) {
         </div>
         <div className="mt-3">
           <button className="border-2 border-solid rounded-sm desktop:p-1 w-1/3 mr-2 mobile:w-[45%] mobile:py-1">
-            <span>10ml</span>
-            <p className="text-red-500 mt-1">{posts.priceFor10ml}</p>
+            <span >10ml</span>
+            <p className="text-red-500 m-0 mt-1">{posts.priceFor10ml}</p>
           </button>
           <button className="border-2 border-solid rounded-sm desktop:p-1 w-1/3 mr-2 mobile:w-[45%] mobile:py-1 ">
             <span>100ml</span>
-            <p className="text-red-500 mt-1">{posts.priceForFull}</p>
+            <p className="text-red-500 m-0 mt-1">{posts.priceForFull}</p>
           </button>
         </div>
         {/* <div className="w-[15%] mt-3 flex ">

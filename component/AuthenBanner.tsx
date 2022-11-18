@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function AuthenBanner() {
   return (
-    <div className="container mar-Baner">
+    <div className="mx-auto desktop:w-1/2  mar-Baner">
         <div className="banner-item">
             <div className="bor-logo-banner"> 
                 <Image width={'100%'} height={'100%'} src="https://chuanperfume.com/wp-content/uploads/icon-mien-phi-giao-hang.png" alt="abc" />
