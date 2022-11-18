@@ -40,6 +40,7 @@ export type DetailPro = {
 // border-2 border-solid rounded-md p-2 desktop:w-1/2 mr-2 bg-red-600
 export default function MainDetai({ posts }: DetailPro) {
   const { img } = posts;
+ 
   const [active, setActive] = useState(0);
   const {classes} = useStyles();
 

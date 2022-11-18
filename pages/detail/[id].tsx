@@ -1,7 +1,10 @@
+import axios from "axios";
+import { GetStaticPaths } from "next";
 import Head from "next/head";
 import * as React from "react";
 import Header from "../../component/Header";
 import MainDetail, { DetailPro } from "../../component/MainDetai";
+import rateLimit from 'axios-rate-limit';
 
 export default function App({ posts }: DetailPro) {
   return (
@@ -20,7 +23,7 @@ export default function App({ posts }: DetailPro) {
     </>
   );
 }
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const res = await fetch(
     `https://636479368a3337d9a2f7a739.mockapi.io/api/v1/perfumetest`
   );
@@ -28,23 +31,24 @@ export async function getStaticPaths() {
   const posts = await res.json();
 
   const paths = posts.map((post: any) => ({
-    params: { DetailID: post.id.toString() },
+    params: { id: post.id.toString() },
   }));
-  // console.log(paths)
+  console.log(paths);
   return { paths, fallback: false };
-}
+};
 
-export async function getStaticProps(context: any) {
-  const { DetailID } = context.params;
+export async function getStaticProps({ params }: any) {
+
+  const { id } = params;
   const res = await fetch(
-    `https://636479368a3337d9a2f7a739.mockapi.io/api/v1/perfumetest/${DetailID}`
+    `https://636479368a3337d9a2f7a739.mockapi.io/api/v1/perfumetest/${id}`
   );
   const posts = await res.json();
 
   return {
     props: {
-      posts,
-      revalidate: 10,
+      posts: posts,
     },
+    revalidate: 1,
   };
 }

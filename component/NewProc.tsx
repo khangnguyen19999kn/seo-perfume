@@ -32,7 +32,7 @@ console.log(posts[0].priceForFull)
     if (posts) {
       const grpIteem = posts.map((element: TypeOfData, index: number) => (
         <li key={index} className="List-item">
-          <Link className="no-underline" href={`/Detail/${element.id}`} >
+          <Link className="no-underline" href={`/detail/${element.id}`} >
           <div className="card-item-list-new">
             <Image
               width={"100%"}
