@@ -33,7 +33,8 @@ export default function Home({ posts }: NewProcProps ) {
 }
 export async function getStaticProps() {
 
-  const res = await fetch('https://636479368a3337d9a2f7a739.mockapi.io/api/v1/perfumetest')
+  // const res = await fetch('https://636479368a3337d9a2f7a739.mockapi.io/api/v1/perfumetest')
+  const res = await fetch('http://localhost:6969/api/v1/product/')
   const posts = await res.json()
 
 

@@ -35,6 +35,9 @@ export type DetailPro = {
     padding:'1rem',
    
   },
+  button:{
+    marginRight:'20px'
+  }
 
 }))
 // border-2 border-solid rounded-md p-2 desktop:w-1/2 mr-2 bg-red-600
@@ -43,6 +46,18 @@ export default function MainDetai({ posts }: DetailPro) {
  
   const [active, setActive] = useState(0);
   const {classes} = useStyles();
+  const [price, setPrice] = useState(posts.priceFor10ml+ "đ- "+ posts.priceForFull +"đ");
+  const [size, setSize] = useState<string>()
+
+  const chosseSize = (size:string) => {
+    setSize(size);
+    if (size === "10ml") {
+      setPrice(posts.priceFor10ml + "đ");
+    } else {
+      setPrice(posts.priceForFull + "đ");
+    }
+  };
+
 
   return (
     <div className="desktop:mx-auto desktop:w-1/2 flex desktop:mt-[7%] mobile:mt-[10vh] desktop:flex-row tablet:flex-col mobile:flex-col ">
@@ -54,7 +69,7 @@ export default function MainDetai({ posts }: DetailPro) {
       <div className="desktop:w-3/6 px-5 mobile:text-center">
         <div className="flex flex-col mobile:items-center">
           <h1 className="font-bold m-0">{posts.name}</h1>
-          <h2 className="text-red-500 font-semibold m-0">{posts.priceFor10ml+ "đ- "+ posts.priceForFull +"đ"}</h2>
+          <h2 className="text-red-500 font-semibold m-0">{price}</h2>
           <hr className="desktop:w-full"  />
           <p className="mt-2 mb-2">
             Thương hiệu: <span>Maison Margiela</span>
@@ -71,33 +86,25 @@ export default function MainDetai({ posts }: DetailPro) {
           <p className="mt-2 mb-2">Phong cách:Cuốn hút, Nổi bật</p>
           <p className="text-red-400">Miễn phí vận chuyển toàn quốc</p>
         </div>
-        <div className="mt-3">
-          <button className="border-2 border-solid rounded-sm desktop:p-1 w-1/3 mr-2 mobile:w-[45%] mobile:py-1">
+        <div className="mt-1">
+          {/* <button className="border-2 border-solid rounded-sm desktop:p-1 w-1/3 mr-2 mobile:w-[45%] mobile:py-1">
             <span >10ml</span>
             <p className="text-red-500 m-0 mt-1">{posts.priceFor10ml}</p>
           </button>
           <button className="border-2 border-solid rounded-sm desktop:p-1 w-1/3 mr-2 mobile:w-[45%] mobile:py-1 ">
             <span>100ml</span>
             <p className="text-red-500 m-0 mt-1">{posts.priceForFull}</p>
-          </button>
+          </button> */}
+          <Button onClick={()=>{chosseSize("10ml")}} className={classes.button} size="lg" color={size=="10ml"?"pink":"gray"}>
+            10ml
+          </Button>
+          <Button onClick={()=>{chosseSize("full")}} size="lg" color={size=="full"?"pink":"gray"}>
+            100ml
+          </Button>
         </div>
-        {/* <div className="w-[15%] mt-3 flex ">
-          <Input className={classes.wrapper} style={{ height: "100%" }} type="number" defaultValue={1} />
-          <div className="flex flex-col ml-1">
-            <input
-              value={"+"}
-              type="button"
-              className="border-[1px] border-solid w-[20px] text-center"
-            />
-            <input
-              value={"-"}
-              type="button"
-              className="border-[1px] border-solid w-[20px] text-center"
-            />
-          </div>
-        </div> */}
+
         <div className="flex mt-2 mobile:flex-col">
-          <Button color={'red'} className={classes.root}>
+          <Button  color={'red'} className={classes.root}>
             <a className="no-underline text flex items-center flex-col text-white" href="https://zalo.me/0334146207 " target="_blank" rel="noopener noreferrer" >
             <span className="font-bold text-[18px] ">Mua Ngay</span>
             <p className=" mt-2 text-[14px]">Thanh Toán COD hoặc Online</p>

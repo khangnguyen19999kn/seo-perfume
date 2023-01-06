@@ -31,12 +31,15 @@ export default function Navbar({ tog, setTog }: activeResponsive) {
     });
     setTimeout(() => {
       if (ref.current) {
-        if (scroll.y > 100) {
+        
+        if (scroll.y > 500) {
           ref.current.className = "hidden";
+      
+          
         }
       }
     }, 3000);
-    console.log(scroll.y);
+  
   }, [scroll.y]);
 
   return (

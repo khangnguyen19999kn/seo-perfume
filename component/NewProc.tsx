@@ -26,13 +26,20 @@ export type NewProcProps = {
 }
 
 export default function NewProc({ posts }: NewProcProps) {
-console.log(posts[0].priceForFull)
-  
+  const listProc = ()=>{
+    const listItem = []
+    for (let i = 0; i < 1000; i++) {
+      listItem.push(posts[0])
+      
+    }
+    return listItem
+  }
+  const list = listProc()
   const showItem = () => {
     if (posts) {
-      const grpIteem = posts.map((element: TypeOfData, index: number) => (
+      const grpIteem = list.map((element: TypeOfData, index: number) => (
         <li key={index} className="List-item">
-          <Link className="no-underline" href={`/detail/${element.id}`} >
+          <Link className="no-underline" href={`/detail/${element._id}`} >
           <div className="card-item-list-new">
             <Image
               width={"100%"}
@@ -55,6 +62,7 @@ console.log(posts[0].priceForFull)
         </li>
       ));
       return grpIteem.splice(0, 8);
+      // return grpIteem
     } else return <Loader height={400} />;
   };
 

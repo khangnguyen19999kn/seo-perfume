@@ -25,15 +25,15 @@ export default function App({ posts }: DetailPro) {
 }
 export const getStaticPaths: GetStaticPaths = async () => {
   const res = await fetch(
-    `https://636479368a3337d9a2f7a739.mockapi.io/api/v1/perfumetest`
+    `http://localhost:6969/api/v1/product/`
   );
 
   const posts = await res.json();
 
   const paths = posts.map((post: any) => ({
-    params: { id: post.id.toString() },
+    params: { id: post._id.toString() },
   }));
-  console.log(paths);
+
   return { paths, fallback: false };
 };
 
@@ -41,7 +41,7 @@ export async function getStaticProps({ params }: any) {
 
   const { id } = params;
   const res = await fetch(
-    `https://636479368a3337d9a2f7a739.mockapi.io/api/v1/perfumetest/${id}`
+    `http://localhost:6969/api/v1/product/${id}`
   );
   const posts = await res.json();
 
